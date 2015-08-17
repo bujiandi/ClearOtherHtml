@@ -32,16 +32,19 @@ func cleanUnknowHtml(HTML:String, regular:NSRegularExpression) -> String {
         case "b","i","u","a","br","h1","h2","h3","h4","h5","h6","h7","li","sub","sup","img":
             result += html.substringWithRange(match.range)
         case "p":
-            break
-//            if match.rangeAtIndex(1).location == NSNotFound {               //如果是TAG起始
-//                if match.rangeAtIndex(4).location != NSNotFound {           //如果TAB 以/>结束
-//                    result += "<p />"
-//                } else {
-//                    result += "<p>"
-//                }
-//            }else {
-//                result += "</p>"
-//            }
+            //break
+            if match.rangeAtIndex(1).location == NSNotFound {               //如果是TAG起始
+                if match.rangeAtIndex(4).location != NSNotFound {           //如果TAB 以/>结束
+                    //result += "<p />" 
+                    break
+                } else {
+                    //result += "<p>"
+                    break
+                }
+            }else {
+                //result += "</p>"
+                result += "<br>"
+            }
         default : break
             //println("抛弃无法识别标记:\(tag)")
         }
@@ -51,7 +54,39 @@ func cleanUnknowHtml(HTML:String, regular:NSRegularExpression) -> String {
         let length = html.length - loaction
         result += html.substringWithRange(NSMakeRange(loaction, length))
     }
-    return trim(result)
+    //println(trimHtml(result))
+    return trimHtml(result)
+}
+
+func trimHtml(html:String) -> String {
+    let html = trim(html)
+    // 去除前缀 换行与空格
+    if html.hasPrefix("<br>") {
+        return trimHtml(html.substringFromIndex(4))
+    }
+    if html.hasPrefix("<br/>") {
+        return trimHtml(html.substringFromIndex(5))
+    }
+    if html.hasPrefix("</br>") {
+        return trimHtml(html.substringFromIndex(5))
+    }
+    if html.hasPrefix("&nbsp;") {
+        return trimHtml(html.substringFromIndex(6))
+    }
+    // 去除后缀 换行与空格
+    if html.hasSuffix("<br>") {
+        return trimHtml(html.substringToIndex(html.length - 4))
+    }
+    if html.hasSuffix("<br/>") {
+        return trimHtml(html.substringToIndex(html.length - 5))
+    }
+    if html.hasSuffix("</br>") {
+        return trimHtml(html.substringToIndex(html.length - 5))
+    }
+    if html.hasSuffix("&nbsp;") {
+        return trimHtml(html.substringToIndex(html.length - 6))
+    }
+    return html
 }
 
 let path = "/Users/bujiandi/Documents/TyData.db"
@@ -128,6 +163,24 @@ typealias Question = (
 
 let regular = NSRegularExpression(pattern: "<\\s*(/)?\\s*([:_A-Za-z0-9]+)([^>]*?)(/)?\\s*>", options: NSRegularExpressionOptions.CaseInsensitive, error: nil)!
 
+func cleanAnswersHtml(answers:[String]) -> [String] {
+    var result:[String] = []
+    var hasRepeatKey:Bool = true
+    for answer in answers {
+        let answer = cleanUnknowHtml(answer, regular)
+        let key = answer.unicodeScalars[0]
+        hasRepeatKey = hasRepeatKey && (answer.length > 1 ? key.value == answer.unicodeScalars[1].value : false)
+        result.append(trimHtml(answer.substringFromIndex(1)))
+    }
+    if hasRepeatKey {
+        return cleanAnswersHtml(result)
+    }
+    
+    for var i:Int = 0; i<result.count; i++ {
+        result[i] = "\(UnicodeScalar(i + 65))\(result[i])"
+    }
+    return result
+}
 
 var questions:[Question] = []
 if let rs = db.select(nil, from: "TYKW_EXERCISES", Where: nil) {
@@ -139,9 +192,9 @@ if let rs = db.select(nil, from: "TYKW_EXERCISES", Where: nil) {
         
         var answers:[String] = []
         if !answerString.isEmpty {
-            for answer in answerString.componentsSeparatedByString(splitString) {
-                answers.append(cleanUnknowHtml(answer, regular))
-            }
+            
+            answers = cleanAnswersHtml(answerString.componentsSeparatedByString(splitString))
+            //println(answers)
         }
         
         let question:Question = (

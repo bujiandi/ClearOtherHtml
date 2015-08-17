@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>1EA8E6F7-EE2C-4EBD-99F0-FA48B6F0385E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ClearOtherHtml</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>560029A454F661B71302BA3DF6575EEEFF82B8FA</key>
+		<string>https://github.com/bujiandi/Swift-UtilsFramework.git</string>
+		<key>BD5D62A51EC9A20E6F4677BFE13FBFD38740263E</key>
+		<string>https://github.com/bujiandi/ClearOtherHtml.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ClearOtherHtml.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>560029A454F661B71302BA3DF6575EEEFF82B8FA</key>
+		<string>../../../../SwiftFramework/Swift-UtilsFramework</string>
+		<key>BD5D62A51EC9A20E6F4677BFE13FBFD38740263E</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/bujiandi/ClearOtherHtml.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BD5D62A51EC9A20E6F4677BFE13FBFD38740263E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BD5D62A51EC9A20E6F4677BFE13FBFD38740263E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ClearOtherHtml</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>560029A454F661B71302BA3DF6575EEEFF82B8FA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Swift-UtilsFramework</string>
+		</dict>
+	</array>
+</dict>
+</plist>

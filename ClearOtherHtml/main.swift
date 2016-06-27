@@ -10,15 +10,15 @@ import Foundation
 
 let splitString = "-=~=-=~=-"
 let emptyString = ""
-println("Hello, World!\(emptyString.componentsSeparatedByString(splitString).count)")
+print("Hello, World!\(emptyString.componentsSeparatedByString(splitString).count)")
 
 func cleanUnknowHtml(HTML:String, regular:NSRegularExpression) -> String {
     var result:String = ""
     let html:NSString = HTML
-    let matchs = regular.matchesInString(HTML, options: NSMatchingOptions(0), range: NSMakeRange(0, html.length))
+    let matchs = regular.matchesInString(HTML, options: NSMatchingOptions(rawValue: 0), range: NSMakeRange(0, html.length))
     var lastRange = NSMakeRange(0, 0)
     
-    for match in matchs as! [NSTextCheckingResult] {
+    for match in matchs {
         let location = lastRange.location + lastRange.length
         let length = match.range.location - location;
         
@@ -36,6 +36,7 @@ func cleanUnknowHtml(HTML:String, regular:NSRegularExpression) -> String {
             if match.rangeAtIndex(1).location == NSNotFound {               //如果是TAG起始
                 if match.rangeAtIndex(4).location != NSNotFound {           //如果TAB 以/>结束
                     //result += "<p />" 
+                    result += "<br>"
                     break
                 } else {
                     //result += "<p>"
@@ -59,7 +60,7 @@ func cleanUnknowHtml(HTML:String, regular:NSRegularExpression) -> String {
 }
 
 func trimHtml(html:String) -> String {
-    let html = trim(html)
+    let html = html.trim()//trim(html)
     // 去除前缀 换行与空格
     if html.hasPrefix("<br>") {
         return trimHtml(html.substringFromIndex(4))
@@ -98,7 +99,62 @@ let sqlite = SQLite(path: path, version: 4) {
 }
 
 let (db, error) = sqlite.open()
+///*
+typealias Guide = (id:Int64, pid:Int64, name:String, content:String)
 
+var guides:[Guide] = []
+var tmpGuides:[Guide] = []
+if let rs = db.select(nil, from: "TYKW_GUIDE", Where: nil) {
+    while rs.next {
+        
+        let id = rs.getInt64("GUIDE_ID")
+        let pid = rs.getInt64("GUIDE_PID")
+        let name = rs.getString("GUIDE_NAME") ?? ""
+        let content = (rs.getString("GUIDE_CONTENT") ?? "").trim()
+        
+        if content.isEmpty {
+            guides.append((id:id, pid:pid, name:name, content:content))
+        } else {
+            tmpGuides.append((id:id, pid:pid, name:name, content:content))
+        }
+    }
+}
+
+for var i:Int = 0; i<guides.count; i++ {
+    if guides[i].pid != -1 {
+        let id = guides[i].id
+        var content = ""
+        for item in tmpGuides {
+            if item.pid == id {
+                content = item.content
+                break
+            }
+        }
+        if !content.isEmpty {
+            let item = guides[i]
+            guides[i] = (id:id, pid:item.pid, name:item.name, content:content)
+        }
+    }
+}
+let deleteIDs = tmpGuides.valuesFor({ $0.id }).componentsJoinedByString(",")
+db.delete(from: "TYKW_GUIDE", Where: "GUIDE_ID in (\(deleteIDs))")
+
+db.insertOrReplace(into: "TYKW_GUIDE", ["GUIDE_ID","GUIDE_PID","GUIDE_NAME","GUIDE_CONTENT"]) {
+    (index) -> [String : Any]? in
+    if index < guides.count {
+        let guide = guides[index]
+        return [
+            "GUIDE_ID":guide.id,
+            "GUIDE_PID":guide.pid,
+            "GUIDE_NAME":guide.name,
+            "GUIDE_CONTENT":guide.content
+        ]
+    } else {
+        return nil
+    }
+}
+//*/
+///*
 typealias Chapter = (id:Int64, name:String, pid:Int64, order:Int64, hide:Int64, child:Int64)
 
 var chapters:[Chapter] = []
@@ -110,7 +166,7 @@ if let rs = db.select(nil, from: "TYKW_CHAPTER", Where: nil) {
         let hide = rs.getInt64("CHAPTER_TAKE")
         let child = rs.getInt64("CHILD_VALUE")
         let name = rs.getString("CHAPTER_NAME")
-        chapters.append((id:id, name:trim(name), pid:pid, order:order, hide:hide, child:child))
+        chapters.append((id:id, name:name.trim(), pid:pid, order:order, hide:hide, child:child))
         //println("id:\(id) name:\(trim(name))")
         
     }
@@ -161,13 +217,16 @@ typealias Question = (
     correct:Int64
 )
 
-let regular = NSRegularExpression(pattern: "<\\s*(/)?\\s*([:_A-Za-z0-9]+)([^>]*?)(/)?\\s*>", options: NSRegularExpressionOptions.CaseInsensitive, error: nil)!
+var regular:NSRegularExpression?
+do {
+    regular = try NSRegularExpression(pattern: "<\\s*(/)?\\s*([:_A-Za-z0-9]+)([^>]*?)(/)?\\s*>", options: NSRegularExpressionOptions.CaseInsensitive)
+} catch {}
 
 func cleanAnswersHtml(answers:[String]) -> [String] {
     var result:[String] = []
     var hasRepeatKey:Bool = true
     for answer in answers {
-        let answer = cleanUnknowHtml(answer, regular)
+        let answer = cleanUnknowHtml(answer, regular: regular!)
         let key = answer.unicodeScalars[0]
         hasRepeatKey = hasRepeatKey && (answer.length > 1 ? key.value == answer.unicodeScalars[1].value : false)
         result.append(trimHtml(answer.substringFromIndex(1)))
@@ -199,9 +258,9 @@ if let rs = db.select(nil, from: "TYKW_EXERCISES", Where: nil) {
         
         let question:Question = (
             id:id,
-            content:cleanUnknowHtml(content, regular),
+            content:cleanUnknowHtml(content, regular: regular!),
             answer:answers,
-            analytical:cleanUnknowHtml(analytical, regular),
+            analytical:cleanUnknowHtml(analytical, regular: regular!),
             
             pid:rs.getInt64("EXERCISES_PID"),
             top:rs.getInt64("TOP_ID"),
@@ -242,3 +301,4 @@ db.insertOrReplace(into: "TYKW_EXERCISES", ["EXERCISES_ID","CONTENT","ANALYTICAL
         return nil
     }
 }
+//*/

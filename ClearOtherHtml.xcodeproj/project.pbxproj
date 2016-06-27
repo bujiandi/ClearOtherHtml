@@ -7,14 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3960236E1B6F0D2F0014A1A5 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3960236D1B6F0D2F0014A1A5 /* libsqlite3.0.dylib */; };
-		3960236F1B6F0F580014A1A5 /* Array+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AB00671B6F0A5200CD5B97 /* Array+Utils.swift */; };
-		396023701B6F0F5C0014A1A5 /* IntegerHexabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AB00681B6F0A5200CD5B97 /* IntegerHexabled.swift */; };
-		396023721B6F0F610014A1A5 /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AB006A1B6F0A5200CD5B97 /* String+Utils.swift */; };
+		397DD4631BD916AB00CD5658 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 397DD4621BD916AB00CD5658 /* libsqlite3.0.tbd */; };
+		397DD4661BD9222500CD5658 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397DD4641BD9222500CD5658 /* Date.swift */; settings = {ASSET_TAGS = (); }; };
+		397DD4671BD9222500CD5658 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397DD4651BD9222500CD5658 /* Error.swift */; settings = {ASSET_TAGS = (); }; };
+		397DD46A1BD9224500CD5658 /* Array+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397DD4681BD9224500CD5658 /* Array+Util.swift */; settings = {ASSET_TAGS = (); }; };
+		397DD46B1BD9224500CD5658 /* String+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397DD4691BD9224500CD5658 /* String+Util.swift */; settings = {ASSET_TAGS = (); }; };
 		3986F8A31B6F097700E56940 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3986F8A21B6F097700E56940 /* main.swift */; };
 		39AB006E1B6F0A6700CD5B97 /* SQLite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AB006D1B6F0A6700CD5B97 /* SQLite.swift */; };
-		39AB00711B6F0A7B00CD5B97 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AB006F1B6F0A7B00CD5B97 /* Date.swift */; };
-		39AB00721B6F0A7B00CD5B97 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39AB00701B6F0A7B00CD5B97 /* Error.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,15 +29,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		3960236D1B6F0D2F0014A1A5 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		397DD4621BD916AB00CD5658 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		397DD4641BD9222500CD5658 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Date.swift; path = ../../AndroidIconManager/Test.playground/Sources/Date.swift; sourceTree = "<group>"; };
+		397DD4651BD9222500CD5658 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Error.swift; path = ../../AndroidIconManager/Test.playground/Sources/Error.swift; sourceTree = "<group>"; };
+		397DD4681BD9224500CD5658 /* Array+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Array+Util.swift"; path = "../../AndroidIconManager/Test.playground/Sources/Array+Util.swift"; sourceTree = "<group>"; };
+		397DD4691BD9224500CD5658 /* String+Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+Util.swift"; path = "../../AndroidIconManager/Test.playground/Sources/String+Util.swift"; sourceTree = "<group>"; };
 		3986F89F1B6F097700E56940 /* ClearOtherHtml */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ClearOtherHtml; sourceTree = BUILT_PRODUCTS_DIR; };
 		3986F8A21B6F097700E56940 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		39AB00671B6F0A5200CD5B97 /* Array+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Array+Utils.swift"; path = "../../../SwiftFramework/Swift-UtilsFramework/SwiftFrameworks/extension/Array+Utils.swift"; sourceTree = "<group>"; };
-		39AB00681B6F0A5200CD5B97 /* IntegerHexabled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IntegerHexabled.swift; path = "../../../SwiftFramework/Swift-UtilsFramework/SwiftFrameworks/extension/IntegerHexabled.swift"; sourceTree = "<group>"; };
-		39AB006A1B6F0A5200CD5B97 /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "String+Utils.swift"; path = "../../../SwiftFramework/Swift-UtilsFramework/SwiftFrameworks/extension/String+Utils.swift"; sourceTree = "<group>"; };
 		39AB006D1B6F0A6700CD5B97 /* SQLite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQLite.swift; path = "../../../SwiftFramework/Swift-UtilsFramework/SwiftFrameworks/db/SQLite.swift"; sourceTree = "<group>"; };
-		39AB006F1B6F0A7B00CD5B97 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Date.swift; path = "../../../SwiftFramework/Swift-UtilsFramework/SwiftFrameworks/value/Date.swift"; sourceTree = "<group>"; };
-		39AB00701B6F0A7B00CD5B97 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Error.swift; path = "../../../SwiftFramework/Swift-UtilsFramework/SwiftFrameworks/value/Error.swift"; sourceTree = "<group>"; };
 		39AB00731B6F0ABA00CD5B97 /* ClearOtherHtml-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClearOtherHtml-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -47,7 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3960236E1B6F0D2F0014A1A5 /* libsqlite3.0.dylib in Frameworks */,
+				397DD4631BD916AB00CD5658 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,13 +72,12 @@
 		3986F8A11B6F097700E56940 /* ClearOtherHtml */ = {
 			isa = PBXGroup;
 			children = (
+				397DD4681BD9224500CD5658 /* Array+Util.swift */,
+				397DD4691BD9224500CD5658 /* String+Util.swift */,
+				397DD4641BD9222500CD5658 /* Date.swift */,
+				397DD4651BD9222500CD5658 /* Error.swift */,
 				3986F8A21B6F097700E56940 /* main.swift */,
-				39AB006F1B6F0A7B00CD5B97 /* Date.swift */,
-				39AB00701B6F0A7B00CD5B97 /* Error.swift */,
 				39AB006D1B6F0A6700CD5B97 /* SQLite.swift */,
-				39AB00671B6F0A5200CD5B97 /* Array+Utils.swift */,
-				39AB00681B6F0A5200CD5B97 /* IntegerHexabled.swift */,
-				39AB006A1B6F0A5200CD5B97 /* String+Utils.swift */,
 				39AB00731B6F0ABA00CD5B97 /* ClearOtherHtml-Bridging-Header.h */,
 			);
 			path = ClearOtherHtml;
@@ -89,7 +86,7 @@
 		39AB00641B6F0A1500CD5B97 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3960236D1B6F0D2F0014A1A5 /* libsqlite3.0.dylib */,
+				397DD4621BD916AB00CD5658 /* libsqlite3.0.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -121,7 +118,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "慧趣小歪";
 				TargetAttributes = {
 					3986F89E1B6F097700E56940 = {
@@ -151,12 +148,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39AB00721B6F0A7B00CD5B97 /* Error.swift in Sources */,
-				3960236F1B6F0F580014A1A5 /* Array+Utils.swift in Sources */,
-				396023701B6F0F5C0014A1A5 /* IntegerHexabled.swift in Sources */,
-				396023721B6F0F610014A1A5 /* String+Utils.swift in Sources */,
+				397DD46B1BD9224500CD5658 /* String+Util.swift in Sources */,
+				397DD46A1BD9224500CD5658 /* Array+Util.swift in Sources */,
+				397DD4661BD9222500CD5658 /* Date.swift in Sources */,
 				3986F8A31B6F097700E56940 /* main.swift in Sources */,
-				39AB00711B6F0A7B00CD5B97 /* Date.swift in Sources */,
+				397DD4671BD9222500CD5658 /* Error.swift in Sources */,
 				39AB006E1B6F0A6700CD5B97 /* SQLite.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,6 +180,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;

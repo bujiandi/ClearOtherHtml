@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "BD5D62A51EC9A20E6F4677BFE13FBFD38740263E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "560029A454F661B71302BA3DF6575EEEFF82B8FA" : 0,
+    "BD5D62A51EC9A20E6F4677BFE13FBFD38740263E" : 0,
+    "A74D473410FD8AD5BA3B4E452C21BAFD8CAF6C34" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "1EA8E6F7-EE2C-4EBD-99F0-FA48B6F0385E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "560029A454F661B71302BA3DF6575EEEFF82B8FA" : "SwiftFramework\/Swift-UtilsFramework",
+    "BD5D62A51EC9A20E6F4677BFE13FBFD38740263E" : "ClearOtherHtml",
+    "A74D473410FD8AD5BA3B4E452C21BAFD8CAF6C34" : "AndroidIconManager\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ClearOtherHtml",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ClearOtherHtml.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/bujiandi\/Swift-UtilsFramework.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "560029A454F661B71302BA3DF6575EEEFF82B8FA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/bujiandi\/AndroidIconManager.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A74D473410FD8AD5BA3B4E452C21BAFD8CAF6C34"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/bujiandi\/ClearOtherHtml.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BD5D62A51EC9A20E6F4677BFE13FBFD38740263E"
+    }
+  ]
+}

@@ -20,7 +20,7 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>560029A454F661B71302BA3DF6575EEEFF82B8FA</key>
-		<string>../../../../SwiftFramework/Swift-UtilsFramework</string>
+		<string>../../../SwiftFramework/Swift-UtilsFramework</string>
 		<key>BD5D62A51EC9A20E6F4677BFE13FBFD38740263E</key>
 		<string>../..</string>
 	</dict>
